@@ -1,0 +1,16 @@
+apply from: "../../java.gradle"
+
+apply plugin: "org.springframework.boot"
+apply plugin: "io.spring.dependency-management"
+
+group = 'com.pal'
+version = '0.0.1-SNAPSHOT'
+
+dependencies {
+    testCompile "junit:junit:$junitVersion"
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+
+
+}
