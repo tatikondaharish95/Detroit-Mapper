@@ -7,10 +7,14 @@ group = 'com.pal'
 version = '0.0.1-SNAPSHOT'
 
 dependencies {
-    testCompile "junit:junit:$junitVersion"
 
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-context:$springVersion"
+
+    compile "javax.servlet:javax.servlet-api:3.1.0"
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
 
-
+    testCompile "junit:junit:$junitVersion"
 }
