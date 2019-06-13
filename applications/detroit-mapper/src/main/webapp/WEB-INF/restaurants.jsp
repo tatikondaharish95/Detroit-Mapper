@@ -76,13 +76,13 @@
   <h1>Detroit Mapper</h1>
   <div class="dropdown">
     <button type="button" class="btn btn-primary-outline dropdown-toggle" data-toggle="dropdown">
-        Add Movie
+        Add Restaurant
     </button>
     <form class="dropdown-menu p-4" action="restaurants" method="post">
         <div class="form-row">
         <div class="form-group col-4">
           <label for="inputName">Name</label>
-          <input type="text" name="name" class="form-control" id="inputName" placeholder="Password">
+          <input type="text" name="name" class="form-control" id="inputName" placeholder="Name">
         </div>
         <div class="form-group col-4">
           <label for="inputEmail4">Email</label>
