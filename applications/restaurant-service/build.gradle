@@ -7,10 +7,11 @@ group = 'com.pal'
 version = '0.0.1-SNAPSHOT'
 
 dependencies {
-    testCompile "junit:junit:$junitVersion"
+    compile project(":components:restaurants")
 
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
 
+    compile "mysql:mysql-connector-java:$mysqlVersion"
 
 }
