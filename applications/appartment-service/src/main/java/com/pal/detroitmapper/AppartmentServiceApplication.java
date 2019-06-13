@@ -1,4 +1,4 @@
-package com.pal.detroitmapper.appartments;
+package com.pal.detroitmapper;
 
 public class AppartmentServiceApplication {
 }
