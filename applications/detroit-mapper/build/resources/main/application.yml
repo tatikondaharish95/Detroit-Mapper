@@ -1,0 +1,9 @@
+#spring:
+#  mvc.view:
+#    prefix: /WEB-INF/
+#    suffix: .jsp
+
+logging.level:
+  root: WARN
+  com.pal.detroitmapper: DEBUG
+
