@@ -1,4 +1,4 @@
-package com.pal.detroitmapper.appartments;
+package com.pal.detroitmapper;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
