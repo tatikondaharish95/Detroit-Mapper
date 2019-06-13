@@ -1,20 +1,16 @@
 apply from: "../../java.gradle"
 
-apply plugin: "org.springframework.boot"
-apply plugin: "io.spring.dependency-management"
-
-group = 'com.pal'
-version = '0.0.1-SNAPSHOT'
-
 dependencies {
+    compile project(":components:cs-support")
 
-    compile "org.springframework:spring-web:$springVersion"
+    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.7.0"
+
+    compile "org.springframework:spring-core:$springVersion"
     compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-tx:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
 
+    compile "org.hibernate:hibernate-core:$hibernateVersion"
     compile "javax.servlet:javax.servlet-api:3.1.0"
     compile "org.slf4j:slf4j-api:$slf4jVersion"
-
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
-
-    testCompile "junit:junit:$junitVersion"
 }

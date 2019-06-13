@@ -1,7 +1,7 @@
-#spring:
-#  mvc.view:
-#    prefix: /WEB-INF/
-#    suffix: .jsp
+spring:
+  mvc.view:
+    prefix: /WEB-INF/
+    suffix: .jsp
 
 logging.level:
   root: WARN
