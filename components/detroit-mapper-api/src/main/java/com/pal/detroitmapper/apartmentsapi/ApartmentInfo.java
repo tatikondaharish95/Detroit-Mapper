@@ -1,40 +1,34 @@
-package com.pal.detroitmapper.apartments;
+package com.pal.detroitmapper.apartmentsapi;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import java.util.Objects;
 
-@Entity
-public class Apartment {
+public class ApartmentInfo {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-    private Float price;
-    private String streetAdress;
+    private float price;
+    private String streetAddress;
     private String city;
     private String state;
     private int pincode;
-    private int phone;
+    private String phone;
     private String email;
     private boolean oneBhk;
     private boolean twoBhk;
     private boolean threeBhk;
     private boolean fourBhk;
 
-    public Apartment() {
+    public ApartmentInfo() {
 
     }
-    public Apartment(String name, Float price, String streetAdress, String city, String state, int pincode,
-                     int phone, String email, boolean oneBhk, boolean twoBhk, boolean threeBhk, boolean fourBhk) {
+    public ApartmentInfo(String name, Float price, String streetAddress, String city, String state, int pincode,
+                     String phone, String email, boolean oneBhk, boolean twoBhk, boolean threeBhk, boolean fourBhk) {
 
         this.name = name;
         this.price = price;
-        this.streetAdress = streetAdress;
+        this.streetAddress = streetAddress;
         this.city = city;
         this.state = state;
         this.pincode = pincode;
@@ -62,12 +56,12 @@ public class Apartment {
         this.price = price;
     }
 
-    public String getStreetAdress() {
-        return streetAdress;
+    public String getStreetAddress() {
+        return streetAddress;
     }
 
-    public void setStreetAdress(String streetAdress) {
-        this.streetAdress = streetAdress;
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
     }
 
     public String getCity() {
@@ -94,11 +88,11 @@ public class Apartment {
         this.pincode = pincode;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -146,7 +140,7 @@ public class Apartment {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Apartment apartment = (Apartment) o;
+        ApartmentInfo apartment = (ApartmentInfo) o;
         return pincode == apartment.pincode &&
                 phone == apartment.phone &&
                 oneBhk == apartment.oneBhk &&
@@ -155,7 +149,7 @@ public class Apartment {
                 fourBhk == apartment.fourBhk &&
                 Objects.equals(name, apartment.name) &&
                 Objects.equals(price, apartment.price) &&
-                Objects.equals(streetAdress, apartment.streetAdress) &&
+                Objects.equals(streetAddress, apartment.streetAddress) &&
                 Objects.equals(city, apartment.city) &&
                 Objects.equals(state, apartment.state) &&
                 Objects.equals(email, apartment.email);
@@ -163,7 +157,7 @@ public class Apartment {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, price, streetAdress, city, state, pincode, phone, email, oneBhk, twoBhk, threeBhk, fourBhk);
+        return Objects.hash(name, price, streetAddress, city, state, pincode, phone, email, oneBhk, twoBhk, threeBhk, fourBhk);
     }
 
     public Long getId() {
