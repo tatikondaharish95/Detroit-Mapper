@@ -1,6 +1,6 @@
-package com.pal.detroitmapper.appartments;
+package com.pal.detroitmapper.apartments;
 
-public class Appartment {
+public class Apartment {
     String name;
     Float price;
     String streetAdress;
