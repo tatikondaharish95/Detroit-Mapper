@@ -40,8 +40,8 @@ public class ApartmentServlet extends HttpServlet {
 
     private ApartmentClient apartmentsClient;
 
-    public ApartmentServlet(ApartmentClient moviesClient) {
-        this.apartmentsClient = moviesClient;
+    public ApartmentServlet(ApartmentClient apartmentsClient) {
+        this.apartmentsClient = apartmentsClient;
     }
 
     @Override
@@ -71,10 +71,10 @@ public class ApartmentServlet extends HttpServlet {
             boolean threeBhk = Boolean.parseBoolean(request.getParameter("threeBhk"));
             boolean fourBhk = Boolean.parseBoolean(request.getParameter("fourBhk"));
 
-            ApartmentInfo movie = new ApartmentInfo(name, price, streetAddress, city, state,
+            ApartmentInfo apartment = new ApartmentInfo(name, price, streetAddress, city, state,
                     pincode, phone, email, oneBhk, twoBhk, threeBhk, fourBhk);
 
-            apartmentsClient.addApartment(movie);
+            apartmentsClient.addApartment(apartment);
             response.sendRedirect("detroitmapper");
             return;
 
@@ -138,12 +138,12 @@ public class ApartmentServlet extends HttpServlet {
             request.setAttribute("end", end);
             request.setAttribute("page", page);
             request.setAttribute("pageCount", pageCount);
-            request.setAttribute("movies", range);
+            request.setAttribute("apartments", range);
             request.setAttribute("key", key);
             request.setAttribute("field", field);
         }
         //we don't need this unless we actually make a real GUI with a WEB-INF folder
-        //request.getRequestDispatcher("WEB-INF/moviefun.jsp").forward(request, response);
+        //request.getRequestDispatcher("WEB-INF/detroitmapper.jsp").forward(request, response);
     }
 
 }

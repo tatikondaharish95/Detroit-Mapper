@@ -62,7 +62,7 @@ public class ApartmentClient {
         return restOperations.exchange(builder.toUriString(), GET, null, apartmentListType).getBody();
     }
 
-    public List<ApartmentInfo> getMovies() {
+    public List<ApartmentInfo> getApartments() {
         return restOperations.exchange(apartmentsUrl, GET, null, apartmentListType).getBody();
     }
 }
