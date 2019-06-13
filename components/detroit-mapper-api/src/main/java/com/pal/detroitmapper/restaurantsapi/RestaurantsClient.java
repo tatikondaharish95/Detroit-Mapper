@@ -64,7 +64,7 @@ public class RestaurantsClient {
         return restOperations.exchange(builder.toUriString(), GET, null, restaurantListType).getBody();
     }
 
-    public List<RestaurantInfo> getAlbums() {
+    public List<RestaurantInfo> getRestaurants() {
         ParameterizedTypeReference<List<RestaurantInfo>> restaurantListType = new ParameterizedTypeReference<List<RestaurantInfo>>() {
         };
 

@@ -52,7 +52,7 @@ public class RestaurantsServlet extends HttpServlet {
 
             restaurantsClient.addRestaurant(restaurantInfo);
 
-            response.sendRedirect("detroitmapper");
+            response.sendRedirect("restaurants");
             return;
 
         } else if ("Remove".equals(action)) {
@@ -62,7 +62,7 @@ public class RestaurantsServlet extends HttpServlet {
                 restaurantsClient.deleteRestaurantId(new Long(id));
             }
 
-            response.sendRedirect("detroitmapper");
+            response.sendRedirect("restaurants");
             return;
 
         } else {
@@ -120,7 +120,7 @@ public class RestaurantsServlet extends HttpServlet {
             request.setAttribute("field", field);
         }
 
-        request.getRequestDispatcher("WEB-INF/detroitmapper.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/restaurants.jsp").forward(request, response);
     }
 
 }
