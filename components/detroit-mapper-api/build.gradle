@@ -11,6 +11,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
-
+    compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-jdbc:$springVersion"
 
 }
