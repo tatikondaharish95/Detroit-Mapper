@@ -16,6 +16,10 @@ public class Apartment {
 
     private boolean threeBhk;
     private boolean fourBhk;
+
+    public Apartment() {
+
+    }
     public Apartment(String name, Float price, String streetAdress, String city, String state, int pincode,
                      int phone, String email, boolean oneBhk, boolean twoBhk, boolean threeBhk, boolean fourBhk) {
 
