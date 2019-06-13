@@ -1,4 +1,5 @@
 rootProject.name = 'detroit-mapper'
+
 include ":components:appartments"
 include ":components:restaurants"
 include ":components:detroit-mapper-api"
