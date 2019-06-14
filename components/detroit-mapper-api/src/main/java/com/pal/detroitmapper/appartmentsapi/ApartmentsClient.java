@@ -8,26 +8,26 @@ import java.util.List;
 
 import static org.springframework.http.HttpMethod.GET;
 
-public class AppartmentsClient {
+public class ApartmentsClient {
 
     private String appartmentUrl;
     private RestOperations restOperations;
-    private static ParameterizedTypeReference<List<AppartmentInfo>> appartmentListType = new ParameterizedTypeReference<List<AppartmentInfo>>() {
+    private static ParameterizedTypeReference<List<ApartmentInfo>> appartmentListType = new ParameterizedTypeReference<List<ApartmentInfo>>() {
     };
-    public AppartmentsClient(String appartmentUrl, RestOperations restOperations) {
+    public ApartmentsClient(String appartmentUrl, RestOperations restOperations) {
         this.appartmentUrl = appartmentUrl;
         this.restOperations = restOperations;
     }
-    public void addApartment(AppartmentInfo appartment) {
-        restOperations.postForEntity(appartmentUrl, appartment, AppartmentInfo.class);
+    public void addApartment(ApartmentInfo appartment) {
+        restOperations.postForEntity(appartmentUrl, appartment, ApartmentInfo.class);
     }
 
-    public AppartmentInfo find(long id) {
-        return restOperations.getForEntity(appartmentUrl + "/" + id, AppartmentInfo.class).getBody();
+    public ApartmentInfo find(long id) {
+        return restOperations.getForEntity(appartmentUrl + "/" + id, ApartmentInfo.class).getBody();
     }
 
-    public List<AppartmentInfo> getAppartments() {
-        ParameterizedTypeReference<List<AppartmentInfo>> appartmentListType = new ParameterizedTypeReference<List<AppartmentInfo>>() {
+    public List<ApartmentInfo> getAppartments() {
+        ParameterizedTypeReference<List<ApartmentInfo>> appartmentListType = new ParameterizedTypeReference<List<ApartmentInfo>>() {
         };
 
         return restOperations.exchange(appartmentUrl, GET, null, appartmentListType).getBody();
@@ -49,7 +49,7 @@ public class AppartmentsClient {
 
         return restOperations.getForObject(builder.toUriString(), Integer.class);
     }
-    public List<AppartmentInfo> findAll(int start, int pageSize) {
+    public List<ApartmentInfo> findAll(int start, int pageSize) {
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(appartmentUrl)
                 .queryParam("start", start)
                 .queryParam("pageSize", pageSize);
@@ -57,7 +57,7 @@ public class AppartmentsClient {
         return restOperations.exchange(builder.toUriString(), GET, null, appartmentListType).getBody();
     }
 
-    public List<AppartmentInfo> findRange(String field, String key, int start, int pageSize) {
+    public List<ApartmentInfo> findRange(String field, String key, int start, int pageSize) {
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(appartmentUrl)
                 .queryParam("field", field)
                 .queryParam("key", key)

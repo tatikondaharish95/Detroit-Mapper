@@ -11,16 +11,16 @@ import java.io.IOException;
 import java.util.List;
 
 @Component
-public class AppartmentServlet extends HttpServlet {
+public class ApartmentServlet extends HttpServlet {
 
     private static final long serialVersionUID = -5832176047021911038L;
 
     public static int PAGE_SIZE = 5;
 
-    private AppartmentsClient appartmentsClient;
+    private ApartmentsClient apartmentsClient;
 
-    public AppartmentServlet(AppartmentsClient appartmentsClient) {
-        this.appartmentsClient = appartmentsClient;
+    public ApartmentServlet(ApartmentsClient apartmentsClient) {
+        this.apartmentsClient = apartmentsClient;
     }
 
     @Override
@@ -50,9 +50,9 @@ public class AppartmentServlet extends HttpServlet {
             boolean bhk_2 = request.getParameter("bhk_2").equalsIgnoreCase("true")?true:false;
             boolean bhk_3 = request.getParameter("bhk_3").equalsIgnoreCase("true")?true:false;
 
-            AppartmentInfo appartmentInfo = new AppartmentInfo(name, street_address, price, city, state, pincode, phone, email, bhk_1, bhk_2, bhk_3);
+            ApartmentInfo apartmentInfo = new ApartmentInfo(name, street_address, price, city, state, pincode, phone, email, bhk_1, bhk_2, bhk_3);
 
-            appartmentsClient.addApartment(appartmentInfo);
+            apartmentsClient.addApartment(apartmentInfo);
 
             response.sendRedirect("appartments");
             return;
@@ -61,7 +61,7 @@ public class AppartmentServlet extends HttpServlet {
 
             String[] ids = request.getParameterValues("id");
             for (String id : ids) {
-                appartmentsClient.deleteAppartmentId(new Long(id));
+                apartmentsClient.deleteAppartmentId(new Long(id));
             }
 
             response.sendRedirect("appartments");
@@ -74,11 +74,11 @@ public class AppartmentServlet extends HttpServlet {
             int count = 0;
 
             if (StringUtils.isEmpty(key) || StringUtils.isEmpty(field)) {
-                count = appartmentsClient.countAll();
+                count = apartmentsClient.countAll();
                 key = "";
                 field = "";
             } else {
-                count = appartmentsClient.count(field, key);
+                count = apartmentsClient.count(field, key);
             }
 
             int page = 1;
@@ -102,12 +102,12 @@ public class AppartmentServlet extends HttpServlet {
             }
 
             int start = (page - 1) * PAGE_SIZE;
-            List<AppartmentInfo> range;
+            List<ApartmentInfo> range;
 
             if (StringUtils.isEmpty(key) || StringUtils.isEmpty(field)) {
-                range = appartmentsClient.findAll(start, PAGE_SIZE);
+                range = apartmentsClient.findAll(start, PAGE_SIZE);
             } else {
-                range = appartmentsClient.findRange(field, key, start, PAGE_SIZE);
+                range = apartmentsClient.findRange(field, key, start, PAGE_SIZE);
             }
 
             int end = start + range.size();

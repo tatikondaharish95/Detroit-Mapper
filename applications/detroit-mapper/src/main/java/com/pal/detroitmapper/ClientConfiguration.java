@@ -1,6 +1,6 @@
 package com.pal.detroitmapper;
 
-import com.pal.detroitmapper.appartmentsapi.AppartmentsClient;
+import com.pal.detroitmapper.appartmentsapi.ApartmentsClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,8 +17,8 @@ public class ClientConfiguration {
     }
 
     @Bean
-    public AppartmentsClient appartmentsClient(RestOperations operations) {
-        return new AppartmentsClient(appartmentUrl, operations);
+    public ApartmentsClient appartmentsClient(RestOperations operations) {
+        return new ApartmentsClient(appartmentUrl, operations);
     }
 
 

@@ -10,11 +10,11 @@ import java.util.List;
 import static com.pal.detroitmapper.CSVUtils.readFromCsv;
 
 @Component
-public class AppartmentFixtures {
+public class ApartmentFixtures {
 
     private final ObjectReader objectReader;
 
-    public AppartmentFixtures() {
+    public ApartmentFixtures() {
         CsvSchema schema = CsvSchema.builder()
                 .addColumn("name")
                 .addColumn("street_address")
@@ -26,10 +26,10 @@ public class AppartmentFixtures {
                 .addColumn("cuisine")
                 .addColumn("price_range")
                 .build();
-        objectReader = new CsvMapper().readerFor(AppartmentInfo.class).with(schema);
+        objectReader = new CsvMapper().readerFor(ApartmentInfo.class).with(schema);
     }
 
-    public List<AppartmentInfo> load() {
+    public List<ApartmentInfo> load() {
         return readFromCsv(objectReader, "restro.csv");
     }
 }

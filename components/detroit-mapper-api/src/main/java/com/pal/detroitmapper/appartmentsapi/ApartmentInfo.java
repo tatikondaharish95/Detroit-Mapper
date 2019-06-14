@@ -1,15 +1,11 @@
-package com.pal.detroitmapper.appartments;
+package com.pal.detroitmapper.appartmentsapi;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity
-public class Appartment {
+import java.util.Objects;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ApartmentInfo {
+
+
     private int id;
     private String name;
     private String street_address;
@@ -23,10 +19,10 @@ public class Appartment {
     private boolean bhk_2;
     private boolean bhk_3;
 
-    public Appartment() {
+    public ApartmentInfo() {
     }
 
-    public Appartment(String name, String street_address, long price, String city, String state, long pincode, String phone, String email, boolean bhk_1, boolean bhk_2, boolean bhk_3) {
+    public ApartmentInfo(String name, String street_address, long price, String city, String state, long pincode, String phone, String email, boolean bhk_1, boolean bhk_2, boolean bhk_3) {
         this.name = name;
         this.street_address = street_address;
         this.price = price;
@@ -135,5 +131,29 @@ public class Appartment {
 
     public void setBhk_3(boolean bhk_3) {
         this.bhk_3 = bhk_3;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ApartmentInfo that = (ApartmentInfo) o;
+        return id == that.id &&
+                price == that.price &&
+                pincode == that.pincode &&
+                bhk_1 == that.bhk_1 &&
+                bhk_2 == that.bhk_2 &&
+                bhk_3 == that.bhk_3 &&
+                name.equals(that.name) &&
+                street_address.equals(that.street_address) &&
+                city.equals(that.city) &&
+                state.equals(that.state) &&
+                phone.equals(that.phone) &&
+                email.equals(that.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, street_address, price, city, state, pincode, phone, email, bhk_1, bhk_2, bhk_3);
     }
 }
