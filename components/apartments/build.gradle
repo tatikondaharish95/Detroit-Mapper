@@ -1,18 +1,12 @@
 apply from: "../../java.gradle"
 
-apply plugin: "org.springframework.boot"
-apply plugin: "io.spring.dependency-management"
-
-group = 'com.pal'
-version = '0.0.1-SNAPSHOT'
-
 dependencies {
-    testCompile "junit:junit:$junitVersion"
-
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-tx:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
 
     compile "org.hibernate:hibernate-core:$hibernateVersion"
+    compile "javax.servlet:javax.servlet-api:3.1.0"
     compile "org.slf4j:slf4j-api:$slf4jVersion"
-
 }

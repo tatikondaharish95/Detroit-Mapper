@@ -142,7 +142,7 @@ public class ApartmentInfo {
         if (o == null || getClass() != o.getClass()) return false;
         ApartmentInfo apartment = (ApartmentInfo) o;
         return pincode == apartment.pincode &&
-                phone == apartment.phone &&
+                phone.equals(apartment.phone) &&
                 oneBhk == apartment.oneBhk &&
                 twoBhk == apartment.twoBhk &&
                 threeBhk == apartment.threeBhk &&

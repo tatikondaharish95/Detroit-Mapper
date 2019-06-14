@@ -4,46 +4,41 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Objects;
 
 @Entity
 public class Apartment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    private int id;
     private String name;
-    private Float price;
-    private String streetAdress;
+    private String street_address;
+    private long price;
     private String city;
     private String state;
-    private int pincode;
-    private int phone;
+    private long pincode;
+    private String phone;
     private String email;
-    private boolean oneBhk;
-    private boolean twoBhk;
-    private boolean threeBhk;
-    private boolean fourBhk;
+    private boolean bhk_1;
+    private boolean bhk_2;
+    private boolean bhk_3;
 
     public Apartment() {
-
     }
-    public Apartment(String name, Float price, String streetAdress, String city, String state, int pincode,
-                     int phone, String email, boolean oneBhk, boolean twoBhk, boolean threeBhk, boolean fourBhk) {
 
+    public Apartment(String name, String street_address, long price, String city, String state, long pincode, String phone, String email, boolean bhk_1, boolean bhk_2, boolean bhk_3) {
         this.name = name;
+        this.street_address = street_address;
         this.price = price;
-        this.streetAdress = streetAdress;
         this.city = city;
         this.state = state;
         this.pincode = pincode;
         this.phone = phone;
         this.email = email;
-        this.oneBhk = oneBhk;
-        this.twoBhk = twoBhk;
-        this.threeBhk = threeBhk;
-        this.fourBhk = fourBhk;
+        this.bhk_1 = bhk_1;
+        this.bhk_2 = bhk_2;
+        this.bhk_3 = bhk_3;
+
     }
 
     public String getName() {
@@ -54,20 +49,20 @@ public class Apartment {
         this.name = name;
     }
 
-    public Float getPrice() {
+    public String getStreet_address() {
+        return street_address;
+    }
+
+    public void setStreet_address(String street_address) {
+        this.street_address = street_address;
+    }
+
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(long price) {
         this.price = price;
-    }
-
-    public String getStreetAdress() {
-        return streetAdress;
-    }
-
-    public void setStreetAdress(String streetAdress) {
-        this.streetAdress = streetAdress;
     }
 
     public String getCity() {
@@ -86,19 +81,19 @@ public class Apartment {
         this.state = state;
     }
 
-    public int getPincode() {
+    public long getPincode() {
         return pincode;
     }
 
-    public void setPincode(int pincode) {
+    public void setPincode(long pincode) {
         this.pincode = pincode;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -110,67 +105,35 @@ public class Apartment {
         this.email = email;
     }
 
-    public boolean isOneBhk() {
-        return oneBhk;
-    }
-
-    public void setOneBhk(boolean oneBhk) {
-        this.oneBhk = oneBhk;
-    }
-
-    public boolean isTwoBhk() {
-        return twoBhk;
-    }
-
-    public void setTwoBhk(boolean twoBhk) {
-        this.twoBhk = twoBhk;
-    }
-
-    public boolean isThreeBhk() {
-        return threeBhk;
-    }
-
-    public void setThreeBhk(boolean threeBhk) {
-        this.threeBhk = threeBhk;
-    }
-
-    public boolean isFourBhk() {
-        return fourBhk;
-    }
-
-    public void setFourBhk(boolean fourBhk) {
-        this.fourBhk = fourBhk;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Apartment apartment = (Apartment) o;
-        return pincode == apartment.pincode &&
-                phone == apartment.phone &&
-                oneBhk == apartment.oneBhk &&
-                twoBhk == apartment.twoBhk &&
-                threeBhk == apartment.threeBhk &&
-                fourBhk == apartment.fourBhk &&
-                Objects.equals(name, apartment.name) &&
-                Objects.equals(price, apartment.price) &&
-                Objects.equals(streetAdress, apartment.streetAdress) &&
-                Objects.equals(city, apartment.city) &&
-                Objects.equals(state, apartment.state) &&
-                Objects.equals(email, apartment.email);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, price, streetAdress, city, state, pincode, phone, email, oneBhk, twoBhk, threeBhk, fourBhk);
-    }
-
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean isBhk_1() {
+        return bhk_1;
+    }
+
+    public void setBhk_1(boolean bhk_1) {
+        this.bhk_1 = bhk_1;
+    }
+
+    public boolean isBhk_2() {
+        return bhk_2;
+    }
+
+    public void setBhk_2(boolean bhk_2) {
+        this.bhk_2 = bhk_2;
+    }
+
+    public boolean isBhk_3() {
+        return bhk_3;
+    }
+
+    public void setBhk_3(boolean bhk_3) {
+        this.bhk_3 = bhk_3;
     }
 }
