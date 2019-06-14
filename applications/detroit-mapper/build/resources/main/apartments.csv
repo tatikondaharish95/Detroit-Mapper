@@ -1,4 +1,3 @@
-name,price,street_address,city,state,pincode,phone,email,is_1bhk,is_2bhk,is_3bhk,is_4bhk
 Legros LLC,1649.35,68 Nobel Place,Grand Rapids,Michigan,49560,6164942558,achasson0@apple.com,true,false,false,false
 Gutmann and Sons,2383.18,47 Almo Point,Detroit,Michigan,48258,7345016292,kpersian1@noaa.gov,false,true,true,false
 Mraz-Hills,2133.81,884 Anthes Trail,Grand Rapids,Michigan,49560,6162652259,atwitty2@usnews.com,,,,

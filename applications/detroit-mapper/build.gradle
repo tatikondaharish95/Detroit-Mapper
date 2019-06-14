@@ -9,6 +9,7 @@ version = '0.0.1-SNAPSHOT'
 
 dependencies {
     compile project(":components:detroit-mapper-api")
+    compile project(":components:cf-support")
 
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-tomcat"
