@@ -30,6 +30,6 @@ public class ApartmentFixtures {
     }
 
     public List<ApartmentInfo> load() {
-        return readFromCsv(objectReader, "restro.csv");
+        return readFromCsv(objectReader, "apartments.csv");
     }
 }
