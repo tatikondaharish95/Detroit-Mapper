@@ -4,9 +4,9 @@ pluginManagement {
 	}
 }
 rootProject.name = 'detroit-mapper'
-include ":components:appartments"
+include ":components:apartments"
 include ":components:hotels"
 include ":components:detroit-mapper-api"
-include ":applications:appartment-service"
-include ":applications:restaurant-service"
+include ":applications:apartment-service"
+include ":applications:hotels-service"
 include ":applications:detroit-mapper"
