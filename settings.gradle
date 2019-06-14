@@ -1,9 +1,10 @@
 rootProject.name = 'detroit-mapper'
-
-include ":components:appartments"
-include ":components:restaurants"
+include ":components:apartments"
+include ":components:hotels"
 include ":components:detroit-mapper-api"
-include ":applications:appartment-service"
+include ":applications:apartment-service"
+include ":applications:hotels-service"
+include ":applications:detroit-mapper"
 include ":applications:restaurant-service"
 include ":applications:detroit-mapper"
 include ":components:cs-support"
