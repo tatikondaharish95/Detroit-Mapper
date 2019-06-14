@@ -1,8 +1,8 @@
 package com.pal.detroitmapper;
 
-import com.pal.detroitmapper.appartmentsapi.ApartmentFixtures;
-import com.pal.detroitmapper.appartmentsapi.ApartmentInfo;
-import com.pal.detroitmapper.appartmentsapi.ApartmentsClient;
+import com.pal.detroitmapper.apartmentsapi.ApartmentFixtures;
+import com.pal.detroitmapper.apartmentsapi.ApartmentInfo;
+import com.pal.detroitmapper.apartmentsapi.ApartmentsClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -29,7 +29,7 @@ public class HomeController {
         for (ApartmentInfo info: apartmentFixtures.load()) {
             apartmentsClient.addApartment(info);
         }
-        model.put("restaurants", apartmentsClient.getAppartments());
+        model.put("apartments", apartmentsClient.getAppartments());
 
         return "setup";
     }

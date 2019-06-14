@@ -1,4 +1,4 @@
-package com.pal.detroitmapper.appartmentsapi;
+package com.pal.detroitmapper.apartmentsapi;
 
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;

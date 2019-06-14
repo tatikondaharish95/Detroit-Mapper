@@ -1,4 +1,4 @@
-package com.pal.detroitmapper.appartmentsapi;
+package com.pal.detroitmapper.apartmentsapi;
 
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;

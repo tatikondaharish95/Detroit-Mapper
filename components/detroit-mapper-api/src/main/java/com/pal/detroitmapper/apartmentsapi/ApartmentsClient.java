@@ -1,4 +1,4 @@
-package com.pal.detroitmapper.appartmentsapi;
+package com.pal.detroitmapper.apartmentsapi;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.web.client.RestOperations;
