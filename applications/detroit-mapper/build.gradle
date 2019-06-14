@@ -2,15 +2,24 @@ apply from: "../../java.gradle"
 
 apply plugin: "org.springframework.boot"
 apply plugin: "io.spring.dependency-management"
+apply plugin: "war"
 
 group = 'com.pal'
 version = '0.0.1-SNAPSHOT'
 
 dependencies {
+    compile project(":components:detroit-mapper-api")
+
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-tomcat"
+
+    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.7.0"
+    compile "taglibs:standard:1.1.2"
+    compile "javax.servlet:jstl:1.2"
+
+    compile "org.apache.tomcat.embed:tomcat-embed-jasper:8.5.6"
+    compile "org.apache.geronimo.specs:geronimo-osgi-locator:1.1"
+    compile "org.apache.geronimo.components:geronimo-jaspi:2.0.0"
+
     testCompile "junit:junit:$junitVersion"
-
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
-
-
 }
