@@ -1,4 +1,4 @@
-package com.pal.detroitmapper.appartments;
+package com.pal.detroitmapper.apartments;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

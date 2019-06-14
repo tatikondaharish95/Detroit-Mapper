@@ -1,4 +1,4 @@
-package com.pal.detroitmapper.appartments;
+package com.pal.detroitmapper.apartments;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/appartments")
+@RequestMapping("/apartments")
 public class ApartmentController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());

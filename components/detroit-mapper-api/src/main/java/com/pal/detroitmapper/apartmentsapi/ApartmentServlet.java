@@ -54,7 +54,7 @@ public class ApartmentServlet extends HttpServlet {
 
             apartmentsClient.addApartment(apartmentInfo);
 
-            response.sendRedirect("appartments");
+            response.sendRedirect("apartments");
             return;
 
         } else if ("Remove".equals(action)) {
@@ -64,7 +64,7 @@ public class ApartmentServlet extends HttpServlet {
                 apartmentsClient.deleteAppartmentId(new Long(id));
             }
 
-            response.sendRedirect("appartments");
+            response.sendRedirect("apartments");
             return;
 
         } else {
@@ -122,7 +122,7 @@ public class ApartmentServlet extends HttpServlet {
             request.setAttribute("field", field);
         }
 
-        request.getRequestDispatcher("WEB-INF/appartments.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/apartments.jsp").forward(request, response);
     }
 
 }

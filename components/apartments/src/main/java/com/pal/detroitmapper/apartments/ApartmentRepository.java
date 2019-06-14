@@ -1,4 +1,4 @@
-package com.pal.detroitmapper.appartments;
+package com.pal.detroitmapper.apartments;
 
 import org.springframework.stereotype.Repository;
 
@@ -32,7 +32,7 @@ public class ApartmentRepository {
 
 
     public List<Apartment> getAppartments() {
-        Query q = this.entityManager.createNativeQuery("SELECT * FROM appartments");
+        Query q = this.entityManager.createNativeQuery("SELECT * FROM apartments");
         List<Apartment> list = q.getResultList();
         return list;
     }
