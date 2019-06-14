@@ -25,7 +25,7 @@
 <html lang="${language}">
 <head>
   <meta charset="utf-8">
-  <title>Moviefun</title>
+  <title>Detroit Mapper</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -50,6 +50,9 @@
       <li class="nav-item">
         <a class="nav-link" href="/restaurants">Restaurants</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/apartments">Apartments</a>
+    </li>
         <li class="nav-item">
         <a class="nav-link" href="/setup">Setup</a>
         </li>

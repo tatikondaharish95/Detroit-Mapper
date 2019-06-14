@@ -24,7 +24,7 @@
 <html lang="${language}">
 <head>
   <meta charset="utf-8">
-  <title>Moviefun</title>
+  <title>Detroit Mapper</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -51,6 +51,9 @@
         <a class="nav-link" href="/restaurants">Restaurants</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="/apartments">Apartments</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="/setup">Setup</a>
     </li>
     </ul>
@@ -61,56 +64,9 @@
 
   <h1>Detroit Mapper</h1>
 
-  <h2>Seeded Database with the Following Restaurants</h2>
-  <table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Street Address</th>
-          <th scope="col">City</th>
-          <th scope="col">State</th>
-          <th scope="col">Zipcode</th>
-          <th scope="col">Phone #</th>
-          <th scope="col">Email</th>
-          <th scope="col">Cuisine</th>
-          <th scope="col">Price Range</th>
-        </tr>
-  </thead>
-    <c:forEach items="${requestScope.restaurants}" var="restaurant">
-      <tr>
-        <td><c:out value="${restaurant.name}"/></td>
-        <td><c:out value="${restaurant.street_address}"/></td>
-        <td><c:out value="${restaurant.city}"/></td>
-        <td><c:out value="${restaurant.state}"/></td>
-        <td><c:out value="${restaurant.pincode}"/></td>
-        <td><c:out value="${restaurant.phone}"/></td>
-        <td><c:out value="${restaurant.email}"/></td>
-        <td><c:out value="${restaurant.cuisine}"/></td>
-        <td><c:out value="${restaurant.price_range}"/></td>
-      </tr>
-    </c:forEach>
-  </table>
+    <h2>Seeded Database with <strong> ${fn:length(requestScope.restaurants)} </strong> Restaurants</h2>
 
-    <h2>Seeded Database with the Following Apartments</h2>
-    <table class="table table-striped table-bordered">
-        <tr>
-            <td><b>Title</b></td>
-            <td><b>Artist</b></td>
-            <td><b>Year</b></td>
-        </tr>
-
-        <c:forEach items="${requestScope.albums}" var="album">
-            <tr>
-                <td> ${album.title} </td>
-                <td> ${album.artist} </td>
-                <td> ${album.year} </td>
-            </tr>
-        </c:forEach>
-    </table>
-
-
-    <h2>Continue</h2>
-  <a href="restaurants">Go to main app</a>
+    <h2>Seeded Database with <strong> ${fn:length(requestScope.apartments)} </strong> Apartments</h2>
 </div>
 <!-- /container -->
 <script src="../assets/js/popper.1.14.7.js"></script>

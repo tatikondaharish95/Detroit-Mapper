@@ -1,9 +1,14 @@
-package com.pal.detroitmapper.apartmentsapi;
+package com.pal.detroitmapper.apartments;
 
-import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public class ApartmentInfo {
-
+@Entity
+public class Apartment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String street_address;
@@ -17,26 +22,10 @@ public class ApartmentInfo {
     private boolean bhk_2;
     private boolean bhk_3;
 
-    public ApartmentInfo() {
+    public Apartment() {
     }
 
-    public ApartmentInfo(String name, Long price, String street_address, String city, String state,
-                         String pincode, String phone, String email, Boolean bhk_1,
-                         Boolean bhk_2, Boolean bhk_3) {
-        this.name = name;
-        this.street_address = street_address;
-        this.price = price;
-        this.city = city;
-        this.state = state;
-        this.pincode = pincode;
-        this.phone = phone;
-        this.email = email;
-        this.bhk_1 = bhk_1;
-        this.bhk_2 = bhk_2;
-        this.bhk_3 = bhk_3;
-    }
-
-    public ApartmentInfo(String name, String street_address, long price, String city, String state, String pincode, String phone, String email, boolean bhk_1, boolean bhk_2, boolean bhk_3) {
+    public Apartment(String name, String street_address, long price, String city, String state, String pincode, String phone, String email, boolean bhk_1, boolean bhk_2, boolean bhk_3) {
         this.name = name;
         this.street_address = street_address;
         this.price = price;
@@ -144,29 +133,5 @@ public class ApartmentInfo {
 
     public void setBhk_3(boolean bhk_3) {
         this.bhk_3 = bhk_3;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ApartmentInfo)) return false;
-        ApartmentInfo that = (ApartmentInfo) o;
-        return getId() == that.getId() &&
-                getPrice() == that.getPrice() &&
-                getPincode() == that.getPincode() &&
-                isBhk_1() == that.isBhk_1() &&
-                isBhk_2() == that.isBhk_2() &&
-                isBhk_3() == that.isBhk_3() &&
-                Objects.equals(getName(), that.getName()) &&
-                Objects.equals(getStreet_address(), that.getStreet_address()) &&
-                Objects.equals(getCity(), that.getCity()) &&
-                Objects.equals(getState(), that.getState()) &&
-                Objects.equals(getPhone(), that.getPhone()) &&
-                Objects.equals(getEmail(), that.getEmail());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getName(), getStreet_address(), getPrice(), getCity(), getState(), getPincode(), getPhone(), getEmail(), isBhk_1(), isBhk_2(), isBhk_3());
     }
 }

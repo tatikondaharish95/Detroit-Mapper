@@ -1,5 +1,6 @@
 package com.pal.detroitmapper;
 
+import com.pal.detroitmapper.apartmentsapi.ApartmentsServlet;
 import com.pal.detroitmapper.restaurantsapi.RestaurantsServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +17,11 @@ public class DetroitMapperApplication {
 	@Bean
 	public ServletRegistrationBean actionServletRegistration(RestaurantsServlet restaurantsServlet) {
 		return new ServletRegistrationBean(restaurantsServlet, "/restaurants/*");
+	}
+
+	@Bean
+	public ServletRegistrationBean apartmentServletRegistration(ApartmentsServlet apartmentsServlet) {
+		return new ServletRegistrationBean(apartmentsServlet, "/apartments/*");
 	}
 
 }

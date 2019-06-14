@@ -1,5 +1,8 @@
 package com.pal.detroitmapper;
 
+import com.pal.detroitmapper.apartmentsapi.ApartmentFixtures;
+import com.pal.detroitmapper.apartmentsapi.ApartmentInfo;
+import com.pal.detroitmapper.apartmentsapi.ApartmentsClient;
 import com.pal.detroitmapper.restaurantsapi.RestaurantFixtures;
 import com.pal.detroitmapper.restaurantsapi.RestaurantInfo;
 import com.pal.detroitmapper.restaurantsapi.RestaurantsClient;
@@ -14,9 +17,16 @@ public class HomeController {
     private final RestaurantsClient restaurantsClient;
     private final RestaurantFixtures restaurantFixtures;
 
-    public HomeController(RestaurantsClient restaurantsClient, RestaurantFixtures restaurantFixtures) {
+    private final ApartmentsClient apartmentsClient;
+    private final ApartmentFixtures apartmentFixtures;
+
+    public HomeController(RestaurantsClient restaurantsClient, RestaurantFixtures restaurantFixtures,
+                          ApartmentsClient apartmentsClient, ApartmentFixtures apartmentFixtures) {
         this.restaurantsClient = restaurantsClient;
         this.restaurantFixtures = restaurantFixtures;
+
+        this.apartmentsClient = apartmentsClient;
+        this.apartmentFixtures = apartmentFixtures;
     }
 
     @GetMapping("/")
@@ -29,7 +39,11 @@ public class HomeController {
         for (RestaurantInfo info: restaurantFixtures.load()) {
             restaurantsClient.addRestaurant(info);
         }
+        for (ApartmentInfo info: apartmentFixtures.load()) {
+            apartmentsClient.addApartment(info);
+        }
         model.put("restaurants", restaurantsClient.getRestaurants());
+        model.put("apartments", apartmentsClient.getApartments());
 
         return "setup";
     }
