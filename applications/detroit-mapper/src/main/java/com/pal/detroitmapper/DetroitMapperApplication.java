@@ -1,5 +1,6 @@
 package com.pal.detroitmapper;
 
+import com.pal.detroitmapper.apartmentsapi.ApartmentsServlet;
 import com.pal.detroitmapper.restaurantsapi.RestaurantsServlet;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -24,4 +25,11 @@ public class DetroitMapperApplication {
 	ServiceCredentials serviceCredentials(@Value("${vcap.services}") String vcapServices) {
 		return new ServiceCredentials(vcapServices);
 	}
+
+	@Bean
+	public ServletRegistrationBean apartmentServletRegistration(ApartmentsServlet apartmentsServlet) {
+		return new ServletRegistrationBean(apartmentsServlet, "/apartments/*");
+	}
+
+
 }

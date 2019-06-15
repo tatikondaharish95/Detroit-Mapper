@@ -52,8 +52,8 @@
         <a class="nav-link" href="/restaurants">Restaurants</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/apartments">Apartments</a>
-    </li>
+          <a class="nav-link" href="/apartments">Apartments</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/setup">Setup</a>
       </li>
@@ -64,8 +64,7 @@
           <option value="name">Name</option>
           <option value="city">City</option>
           <option value="state">State</option>
-          <option value="cuisine">Cuisine</option>
-          <option value="price_range">Price Range ($|$$|$$$)</option>
+          <option value="price">Price</option>
         </select>
     </div>
      <input class="form-control form-control-sm mr-sm-2" type="search" name="key" size="20">
@@ -79,52 +78,70 @@
   <h1>Detroit Mapper</h1>
   <div class="dropdown">
     <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
-        Add Restaurant
+        Add Apartment
     </button>
-    <form class="dropdown-menu p-4" action="restaurants" method="post">
+    <form class="dropdown-menu p-4" action="apartments" method="post">
         <div class="form-row">
         <div class="form-group col-4">
-          <label for="inputName">Name</label>
+          <label for="inputName1">Name</label>
           <input type="text" name="name" class="form-control" id="inputName" placeholder="Name">
         </div>
         <div class="form-group col-4">
-          <label for="inputEmail4">Email</label>
+          <label for="inputEmail1">Email</label>
           <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
         </div>
           <div class="form-group col-4">
-            <label for="inputPhone">Phone</label>
+            <label for="inputPhone1">Phone</label>
             <input type="tel" name="phone" class="form-control" id="inputPhone" placeholder="Phone">
           </div>
         </div>
         <div class="form-group">
-          <label for="inputAddress">Address</label>
+          <label for="inputAddress1">Address</label>
           <input type="text" name="street_address" class="form-control" id="inputAddress" placeholder="1234 Main St">
         </div>
         <div class="form-row">
           <div class="form-group col-6">
-            <label for="inputCity">City</label>
+            <label for="inputCity1">City</label>
             <input type="text" name="city" class="form-control" id="inputCity">
           </div>
           <div class="form-group col-4">
-            <label for="inputState">State</label>
+            <label for="inputState1">State</label>
             <input type="text" name="state" class="form-control" id="inputState">
           </div>
           <div class="form-group col-2">
-            <label for="inputZip">Zip</label>
+            <label for="inputZip1">Zip</label>
             <input type="text" pattern="[0-9]{5}" name="pincode" class="form-control" id="inputZip">
           </div>
         </div>
         <div class="form-row">
             <div class="form-group col-6">
-                <label for="inputCuisine">Cuisine</label>
-                <input type="text" name="cuisine" class="form-control" id="inputCuisine">
+                <label for="inputPrice">Price</label>
+                <input type="number" name="price" class="form-control" id="inputPrice">
             </div>
-            <div class="form-group col-6">
-                <label for="inputPriceRange">Price Range</label>
-                <input type="text" name="price_range" class="form-control" id="inputPriceRange">
+         </div>
+         <div class="form-row">
+            <label class="col-sm-2 col-form-label">Bedrooms</label>
+            <!-- Default inline 1-->
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input name="bedrooms" value="bhk_1" type="checkbox" class="custom-control-input" id="defaultInline1">
+              <label class="custom-control-label" for="defaultInline1">1B1B</label>
             </div>
+
+            <!-- Default inline 2-->
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input name="bedrooms" value="bhk_2" type="checkbox" class="custom-control-input" id="defaultInline2">
+              <label class="custom-control-label" for="defaultInline2">2B2B</label>
+            </div>
+
+            <!-- Default inline 3-->
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input name="bedrooms" value="bhk_3" type="checkbox" class="custom-control-input" id="defaultInline3">
+              <label class="custom-control-label" for="defaultInline3">3B3B</label>
+            </div>
+         </div>
+        <div class="form-row">
+            <button type="submit" name="action" value="Add" class="btn btn-outline-primary">Add</button>
         </div>
-        <button type="submit" name="action" value="Add" class="btn btn-primary">Add</button>
       </form>
   </div>
 
@@ -132,30 +149,34 @@
     <thead>
         <tr>
           <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Phone #</th>
+          <th scope="col">Email</th>
           <th scope="col">Street Address</th>
           <th scope="col">City</th>
           <th scope="col">State</th>
           <th scope="col">Zipcode</th>
-          <th scope="col">Phone #</th>
-          <th scope="col">Email</th>
-          <th scope="col">Cuisine</th>
-          <th scope="col">Price Range</th>
+          <th scope="col">1b1 Available</th>
+          <th scope="col">2b2 Available</th>
+          <th scope="col">3b3 Available</th>
           <th scope="col">Delete?</th>
         </tr>
   </thead>
     <tbody>
-    <c:forEach items="${restaurants}" var="restaurant">
+    <c:forEach items="${apartments}" var="apartment">
       <tr>
-        <td><c:out value="${restaurant.name}"/></td>
-        <td><c:out value="${restaurant.street_address}"/></td>
-        <td><c:out value="${restaurant.city}"/></td>
-        <td><c:out value="${restaurant.state}"/></td>
-        <td><c:out value="${restaurant.pincode}"/></td>
-        <td><c:out value="${restaurant.phone}"/></td>
-        <td><c:out value="${restaurant.email}"/></td>
-        <td><c:out value="${restaurant.cuisine}"/></td>
-        <td><c:out value="${restaurant.price_range}"/></td>
-        <td><a href="?action=Remove&id=${restaurant.id}">
+        <td><c:out value="${apartment.name}"/></td>
+        <td><c:out value="${apartment.price}"/></td>
+        <td><c:out value="${apartment.phone}"/></td>
+        <td><c:out value="${apartment.email}"/></td>
+        <td><c:out value="${apartment.street_address}"/></td>
+        <td><c:out value="${apartment.city}"/></td>
+        <td><c:out value="${apartment.state}"/></td>
+        <td><c:out value="${apartment.pincode}"/></td>
+        <td><c:out value="${apartment.bhk_1}"/></td>
+        <td><c:out value="${apartment.bhk_2}"/></td>
+        <td><c:out value="${apartment.bhk_3}"/></td>
+        <td><a href="?action=Remove&id=${apartment.id}">
                 <span class="oi oi-trash" title="trash icon" aria-hidden="true"></span>
             </a>
         </td>
@@ -165,11 +186,11 @@
   </table>
   <c:if test="${count > 0}">
     <c:if test="${page > 1}">
-      <a href="<c:url value="restaurants"><c:param name="page" value="${page - 1}"/><c:param name="field" value="${field}"/><c:param name="key" value="${key}"/></c:url>">&lt; Prev</a>&nbsp;
+      <a href="<c:url value="apartments"><c:param name="page" value="${page - 1}"/><c:param name="field" value="${field}"/><c:param name="key" value="${key}"/></c:url>">&lt; Prev</a>&nbsp;
     </c:if>
     Showing records ${start} to ${end} of ${count}
     <c:if test="${page < pageCount}">
-      &nbsp;<a href="<c:url value="restaurants"><c:param name="page" value="${page + 1}"/><c:param name="field" value="${field}"/><c:param name="key"
+      &nbsp;<a href="<c:url value="apartments"><c:param name="page" value="${page + 1}"/><c:param name="field" value="${field}"/><c:param name="key"
                                                                                                                                         value="${key}"/></c:url>">Next &gt;</a>
     </c:if>
   </c:if>
