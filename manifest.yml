@@ -16,6 +16,8 @@ applications:
     path: applications/detroit-mapper/build/libs/detroit-mapper-0.0.1-SNAPSHOT.war
     routes:
       - route: detroit-mapper-group-pacific.apps.pcf.paltraining.perficient.com
+    services:
+      - paper-trail
     env:
       APARTMENTS_URL: http://apartment-service-group-pacific.apps.pcf.paltraining.perficient.com/apartments
       RESTAURANTS_URL: http://restaurant-service-group-pacific.apps.pcf.paltraining.perficient.com/restaurants
