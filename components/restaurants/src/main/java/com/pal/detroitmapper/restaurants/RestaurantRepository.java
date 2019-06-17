@@ -37,6 +37,7 @@ public class RestaurantRepository {
 
     @Transactional
     public void deleteRestro(Restaurant restaurant) {
+        logger.debug("Deleting restaurant with name: {}", restaurant.getName());
         entityManager.remove(restaurant);
     }
 
