@@ -31,12 +31,12 @@ public class ApartmentRepository {
     }
 
     @Transactional
-    public void updateApartment(Apartment apartment) {
-        entityManager.merge(apartment);
+    public void updateApartment(Apartment apartment) {entityManager.merge(apartment);
     }
 
     @Transactional
     public void deleteApartment(Apartment apartment) {
+        logger.debug("Deleting apartment with name: {}", apartment.getName());
         entityManager.remove(apartment);
     }
 
