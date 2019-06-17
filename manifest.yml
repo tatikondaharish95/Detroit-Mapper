@@ -6,12 +6,14 @@ applications:
       - route: apartment-service-group-pacific.apps.pcf.paltraining.perficient.com
     services:
       - apartment-database
+      - paper-trail
   - name: restaurant-service
     path: applications/restaurant-service/build/libs/restaurant-service-0.0.1-SNAPSHOT.jar
     routes:
       - route: restaurant-service-group-pacific.apps.pcf.paltraining.perficient.com
     services:
       - restaurant-database
+      - paper-trail
   - name: detroit-mapper
     path: applications/detroit-mapper/build/libs/detroit-mapper-0.0.1-SNAPSHOT.war
     routes:
